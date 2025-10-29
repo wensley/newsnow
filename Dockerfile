@@ -2,7 +2,7 @@ FROM node:20.12.2-alpine AS builder
 WORKDIR /usr/src
 COPY . .
 RUN corepack enable
-RUN pnpm install
+RUN pnpm install --no-frozen-lockfile
 RUN pnpm run build
 
 FROM node:20.12.2-alpine
